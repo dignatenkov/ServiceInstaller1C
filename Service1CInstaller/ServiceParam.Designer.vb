@@ -55,6 +55,7 @@ Partial Class ServiceParam
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ServiceName = New System.Windows.Forms.TextBox()
+        Me.CheckBoxHttp = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -354,11 +355,22 @@ Partial Class ServiceParam
         Me.ServiceName.Size = New System.Drawing.Size(531, 20)
         Me.ServiceName.TabIndex = 9
         '
+        'CheckBoxHttp
+        '
+        Me.CheckBoxHttp.AutoSize = True
+        Me.CheckBoxHttp.Location = New System.Drawing.Point(201, 290)
+        Me.CheckBoxHttp.Name = "CheckBoxHttp"
+        Me.CheckBoxHttp.Size = New System.Drawing.Size(116, 17)
+        Me.CheckBoxHttp.TabIndex = 19
+        Me.CheckBoxHttp.Text = "Отладка по HTTP"
+        Me.CheckBoxHttp.UseVisualStyleBackColor = True
+        '
         'ServiceParam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(543, 362)
+        Me.Controls.Add(Me.CheckBoxHttp)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button4)
@@ -419,4 +431,5 @@ Partial Class ServiceParam
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ServiceName As TextBox
+    Friend WithEvents CheckBoxHttp As CheckBox
 End Class

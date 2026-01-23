@@ -41,6 +41,12 @@ Public Class Form1
         Public User As String
 
         Public Debug As Boolean = False
+
+        '//ДИ старт 2026.01.22
+        Public Http As Boolean = False
+        '//ДИ финиш 2026.01.22
+
+
         Public ExeFile As String = ""
         Public ClusterFiles As String = ""
         Public PortAgent As Integer = 1540
@@ -61,6 +67,18 @@ Public Class Form1
                 PathNameTemp = PathNameTemp.Replace("/debug", "")
 
             End If
+
+            '//ДИ старт 2026.01.22
+            If PathNameTemp.Contains("-http") _
+                Or PathNameTemp.Contains("/http") Then
+
+                Http = True
+
+                PathNameTemp = PathNameTemp.Replace("-http", "")
+                PathNameTemp = PathNameTemp.Replace("/http", "")
+
+            End If
+            '//ДИ финиш 2026.01.22
 
             Dim Ind = PathNameTemp.IndexOf("ragent.exe")
             If Ind > 0 Then

@@ -19,6 +19,10 @@ Public Class ServiceParam
 
         CheckBoxDebug.Checked = Serv.Debug
 
+        '//ДИ старт 2026.01.22
+        CheckBoxHttp.Checked = Serv.Http
+        '//ДИ финиш 2026.01.22
+
         'DescriptionService.Text = Serv.Description
         DisplayName.Text = Serv.DisplayName
 
@@ -199,11 +203,30 @@ Public Class ServiceParam
             Return
         End If
 
+        '//ДИ старт 2026.01.22
+        Dim debugParams As String = ""
+        If CheckBoxDebug.Checked Then
+            debugParams = "-debug"
+            If CheckBoxHttp.Checked Then
+                Dim debugServerPort = (Convert.ToInt32(PortAgent.Text) + 10).ToString
+                debugParams &= " -http -debugServerPort " + debugServerPort
+            End If
+        End If
+
+        '//ДИ финиш 2026.01.22
 
         Dim PathName = """" + ExeFile.Text + """ {0} -srvc -agent -regport {1} -port {2} -range {3}:{4} -d ""{5}"""
 
-        PathName = String.Format(PathName, IIf(CheckBoxDebug.Checked, "-debug", ""), PortMngr.Text,
-                                 PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
+        '//ДИ старт 2026.01.22
+        'PathName = String.Format(PathName, IIf(CheckBoxDebug.Checked, "-debug", ""), PortMngr.Text,
+        'PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
+
+        Dim PathNameTemplate = """" + ExeFile.Text + """ {0} -srvc -agent -regport {1} -port {2} -range {3}:{4} -d ""{5}"""
+        PathName = String.Format(PathNameTemplate, debugParams, PortMngr.Text,
+                         PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
+        '//ДИ финиш 2026.01.22
+
+
 
 
         Dim lpDependencies = "Tcpip" + Char.MinValue + "Dnscache" + Char.MinValue + "lanmanworkstation" + Char.MinValue + "lanmanserver"
@@ -270,5 +293,11 @@ Public Class ServiceParam
         Close()
     End Sub
 
+    Private Sub CheckBoxDebug_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxDebug.CheckedChanged
 
+    End Sub
+
+    Private Sub PortAgent_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles PortAgent.MaskInputRejected
+
+    End Sub
 End Class
