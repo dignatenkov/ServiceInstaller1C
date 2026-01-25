@@ -9,7 +9,10 @@ Public Class ServiceParam
 
     Private Sub ServiceParam_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
-        ServiceName.Text = Serv.Name
+        '//ДИ старт 25.01.2026  { 
+        'ServiceName.Text = Serv.Name
+        '//  } ДИ финиш 25.01.2026 
+
         ExeFile.Text = Serv.ExeFile
         ClusterFiles.Text = Serv.ClusterFiles
         PortAgent.Text = Serv.PortAgent
@@ -49,8 +52,14 @@ Public Class ServiceParam
 
         If ItsAdd Then
             Text = "Добавление новой службы сервера 1С"
+            '//ДИ старт 25.01.2026  { 
+            ServiceName.Text = GetNewNameForService()
+            '//  } ДИ финиш 25.01.2026 
         ElseIf ItsEdit Then
             Text = "Изменение параметров существующей службы сервера 1С"
+            '//ДИ старт 25.01.2026  { 
+            ServiceName.Text = Serv.Name
+            '//  } ДИ финиш 25.01.2026 
         End If
 
 
@@ -249,7 +258,15 @@ Public Class ServiceParam
 
         If ItsAdd Then
 
-            Dim ServName = GetNewNameForService()
+            '//ДИ старт 25.01.2026   { 
+            'Dim ServName = GetNewNameForService()
+            Dim ServName As String
+            If String.IsNullOrWhiteSpace(ServiceName.Text) Then
+                ServName = GetNewNameForService()
+            Else
+                ServName = ServiceName.Text
+            End If
+            '//  } ДИ финиш 25.01.2026 
 
             'TODO - обработка ошибок 
             If Not ObjTec.Services.ServiceInstaller.InstallService(PathName, ServName, DisplayName.Text, lpDependencies, User, Pwd) Then
