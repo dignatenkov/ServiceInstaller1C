@@ -15,7 +15,7 @@ Imports System.Runtime.InteropServices
              vbNewLine + "Страница приложения для обратной связи - http://infostart.ru/public/178238/")>
 <Assembly: AssemblyCompany("ALP Group")>
 <Assembly: AssemblyProduct("Управление службами 1С:Предприятие 8")>
-<Assembly: AssemblyCopyright("Copyright © Aleksey.Bochkov, 2013-2017")>
+<Assembly: AssemblyCopyright("Copyright © Aleksey.Bochkov, 2013-2017 (мелкие доработки Dmitii Ignatenkov 2026)")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

@@ -225,6 +225,7 @@ Partial Class ServiceParam
         '
         'Button4
         '
+        Me.Button4.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Button4.Image = Global.Service1CInstaller.My.Resources.Resources._stop
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -369,6 +370,7 @@ Partial Class ServiceParam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.Button4
         Me.ClientSize = New System.Drawing.Size(543, 362)
         Me.Controls.Add(Me.CheckBoxHttp)
         Me.Controls.Add(Me.GroupBox2)

@@ -426,8 +426,8 @@ Public Class Form1
 
     End Sub
 
-    Private Sub ButtonEdit_Click(sender As System.Object, e As System.EventArgs) Handles ButtonEdit.Click
-
+    Private Sub ButtonEdit_Click(sender As System.Object, e As System.EventArgs) _
+                    Handles ButtonEdit.Click, ListViewExistedServices.MouseDoubleClick
 
 
         If ListViewExistedServices.SelectedItems.Count > 0 Then
@@ -449,7 +449,7 @@ Public Class Form1
 
             Next
 
-        Else
+        ElseIf TypeOf sender Is Button Then
 
             MsgBox("Необходимо выделить строку со службой сервера 1С, которую требуется изменить.", , Text)
 
