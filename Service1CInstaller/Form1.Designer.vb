@@ -38,6 +38,7 @@ Partial Class Form1
         Me.ButtonDelete = New System.Windows.Forms.Button()
         Me.ButtonEdit = New System.Windows.Forms.Button()
         Me.ButtonAdd = New System.Windows.Forms.Button()
+        Me.ButtonRegConsole = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,7 +54,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.ListViewExistedServices)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(752, 259)
+        Me.GroupBox1.Size = New System.Drawing.Size(916, 259)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Установленные службы ""1С:Предприятие 8"""
@@ -62,7 +63,7 @@ Partial Class Form1
         '
         Me.LinkLabel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.Location = New System.Drawing.Point(649, 243)
+        Me.LinkLabel4.Location = New System.Drawing.Point(813, 243)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(95, 13)
         Me.LinkLabel4.TabIndex = 3
@@ -112,10 +113,11 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListViewExistedServices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ServiceName, Me.Status, Me.Port, Me.ClusterFiles, Me.PathName})
         Me.ListViewExistedServices.FullRowSelect = True
+        Me.ListViewExistedServices.HideSelection = False
         Me.ListViewExistedServices.Location = New System.Drawing.Point(6, 19)
         Me.ListViewExistedServices.MultiSelect = False
         Me.ListViewExistedServices.Name = "ListViewExistedServices"
-        Me.ListViewExistedServices.Size = New System.Drawing.Size(738, 221)
+        Me.ListViewExistedServices.Size = New System.Drawing.Size(902, 221)
         Me.ListViewExistedServices.TabIndex = 2
         Me.ListViewExistedServices.UseCompatibleStateImageBehavior = False
         Me.ListViewExistedServices.View = System.Windows.Forms.View.Details
@@ -150,7 +152,7 @@ Partial Class Form1
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button1.Image = Global.Service1CInstaller.My.Resources.Resources.info
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(634, 270)
+        Me.Button1.Location = New System.Drawing.Point(799, 270)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(123, 48)
         Me.Button1.TabIndex = 3
@@ -197,11 +199,24 @@ Partial Class Form1
         Me.ButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ButtonAdd.UseVisualStyleBackColor = True
         '
+        'ButtonRegConsole
+        '
+        Me.ButtonRegConsole.Image = Global.Service1CInstaller.My.Resources.Resources._2026_04_27_23_49_40
+        Me.ButtonRegConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonRegConsole.Location = New System.Drawing.Point(634, 270)
+        Me.ButtonRegConsole.Name = "ButtonRegConsole"
+        Me.ButtonRegConsole.Size = New System.Drawing.Size(159, 48)
+        Me.ButtonRegConsole.TabIndex = 4
+        Me.ButtonRegConsole.Text = "Регистрация утилиты администрирования"
+        Me.ButtonRegConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonRegConsole.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(762, 321)
+        Me.ClientSize = New System.Drawing.Size(926, 321)
+        Me.Controls.Add(Me.ButtonRegConsole)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ButtonDelete)
         Me.Controls.Add(Me.ButtonEdit)
@@ -231,5 +246,5 @@ Partial Class Form1
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
     Friend WithEvents Status As System.Windows.Forms.ColumnHeader
     Friend WithEvents LinkLabel4 As System.Windows.Forms.LinkLabel
-
+    Friend WithEvents ButtonRegConsole As Button
 End Class

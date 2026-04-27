@@ -722,5 +722,39 @@ Public Class Form1
 
     End Sub
 
+    Private Sub ButtonRegConsole_Click(sender As Object, e As EventArgs) Handles ButtonRegConsole.Click
+
+        ' Проверяем, выбрана ли служба в списке
+        If ListViewExistedServices.SelectedItems.Count > 0 Then
+            Dim Item = ListViewExistedServices.SelectedItems.Item(0)
+
+            ' Ищем объект службы по имени
+            For Each Serv In ArrayOfServices
+                If Serv.DisplayName = Item.SubItems(0).Text Then
+
+                    Try
+                        ' 1. Извлекаем папку и склеиваем с именем скрипта
+                        Dim binDir As String = IO.Path.GetDirectoryName(Serv.ExeFile.Replace("""", ""))
+                        Dim cmdPath As String = IO.Path.Combine(binDir, "RegMSC.cmd")
+
+                        ' 2. Проверка наличия файла
+                        If IO.File.Exists(cmdPath) Then
+                            ' 3. Запуск процесса
+                            Dim startInfo As New ProcessStartInfo(cmdPath)
+                            startInfo.WorkingDirectory = binDir ' Критично для регистрации библиотек 1С
+                            Process.Start(startInfo)
+                        Else
+                            ' Ошибка: файл не найден в папке bin текущей платформы
+                        End If
+
+                    Catch ex As Exception
+                        ' Ошибка при обработке строки пути
+                    End Try
+
+                    Exit For
+                End If
+            Next
+        End If
+    End Sub
 End Class
 
