@@ -581,6 +581,9 @@ Public Class Form1
         LinkLabel3.Enabled = False
         ButtonEdit.Enabled = False
         ButtonDelete.Enabled = False
+        'ДИ старт 28.04.2026   { 
+        ButtonRegConsole.Enabled = False
+        '//  } ДИ финиш 28.04.2026 
         ButtonAdd.Text = "Добавить новую службу"
 
         If ListViewExistedServices.SelectedItems.Count > 0 Then
@@ -590,6 +593,9 @@ Public Class Form1
             ButtonEdit.Enabled = True
             ButtonDelete.Enabled = True
             ButtonAdd.Text = "Скопировать" + vbNewLine + "выделенную службу"
+            'ДИ старт 28.04.2026   { 
+            ButtonRegConsole.Enabled = True
+            '//  } ДИ финиш 28.04.2026 
 
             If Item.SubItems(1).Text = "Работает" Then
 
@@ -723,6 +729,7 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonRegConsole_Click(sender As Object, e As EventArgs) Handles ButtonRegConsole.Click
+        '//ДИ 28.04.2026   { 
 
         ' Проверяем, выбрана ли служба в списке
         If ListViewExistedServices.SelectedItems.Count > 0 Then
