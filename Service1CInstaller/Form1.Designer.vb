@@ -55,7 +55,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.ListViewExistedServices)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1087, 259)
+        Me.GroupBox1.Size = New System.Drawing.Size(1025, 259)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Установленные службы ""1С:Предприятие 8"""
@@ -64,7 +64,7 @@ Partial Class Form1
         '
         Me.LinkLabel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.Location = New System.Drawing.Point(984, 243)
+        Me.LinkLabel4.Location = New System.Drawing.Point(922, 243)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(95, 13)
         Me.LinkLabel4.TabIndex = 3
@@ -118,7 +118,7 @@ Partial Class Form1
         Me.ListViewExistedServices.Location = New System.Drawing.Point(6, 19)
         Me.ListViewExistedServices.MultiSelect = False
         Me.ListViewExistedServices.Name = "ListViewExistedServices"
-        Me.ListViewExistedServices.Size = New System.Drawing.Size(1073, 221)
+        Me.ListViewExistedServices.Size = New System.Drawing.Size(1011, 221)
         Me.ListViewExistedServices.TabIndex = 2
         Me.ListViewExistedServices.UseCompatibleStateImageBehavior = False
         Me.ListViewExistedServices.View = System.Windows.Forms.View.Details
@@ -153,7 +153,7 @@ Partial Class Form1
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button1.Image = Global.Service1CInstaller.My.Resources.Resources.info
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(970, 270)
+        Me.Button1.Location = New System.Drawing.Point(906, 270)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(123, 48)
         Me.Button1.TabIndex = 3
@@ -166,12 +166,13 @@ Partial Class Form1
         Me.ButtonDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonDelete.Image = Global.Service1CInstaller.My.Resources.Resources.edit_delete_5986
         Me.ButtonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonDelete.Location = New System.Drawing.Point(424, 270)
+        Me.ButtonDelete.Location = New System.Drawing.Point(366, 270)
         Me.ButtonDelete.Name = "ButtonDelete"
-        Me.ButtonDelete.Size = New System.Drawing.Size(204, 48)
+        Me.ButtonDelete.Size = New System.Drawing.Size(174, 48)
         Me.ButtonDelete.TabIndex = 3
         Me.ButtonDelete.Text = "Удалить выделенную службу"
         Me.ButtonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ButtonDelete.UseVisualStyleBackColor = True
         '
         'ButtonEdit
@@ -179,12 +180,13 @@ Partial Class Form1
         Me.ButtonEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonEdit.Image = Global.Service1CInstaller.My.Resources.Resources.edit
         Me.ButtonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonEdit.Location = New System.Drawing.Point(214, 270)
+        Me.ButtonEdit.Location = New System.Drawing.Point(186, 270)
         Me.ButtonEdit.Name = "ButtonEdit"
-        Me.ButtonEdit.Size = New System.Drawing.Size(204, 48)
+        Me.ButtonEdit.Size = New System.Drawing.Size(174, 48)
         Me.ButtonEdit.TabIndex = 3
         Me.ButtonEdit.Text = "Изменить выделенную службу"
         Me.ButtonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ButtonEdit.UseVisualStyleBackColor = True
         '
         'ButtonAdd
@@ -194,7 +196,7 @@ Partial Class Form1
         Me.ButtonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ButtonAdd.Location = New System.Drawing.Point(6, 270)
         Me.ButtonAdd.Name = "ButtonAdd"
-        Me.ButtonAdd.Size = New System.Drawing.Size(202, 48)
+        Me.ButtonAdd.Size = New System.Drawing.Size(174, 48)
         Me.ButtonAdd.TabIndex = 3
         Me.ButtonAdd.Text = "Добавить новую службу Скопировать выделенную"
         Me.ButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -205,9 +207,9 @@ Partial Class Form1
         Me.ButtonRegConsole.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonRegConsole.Image = Global.Service1CInstaller.My.Resources.Resources._2026_04_27_23_49_40
         Me.ButtonRegConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonRegConsole.Location = New System.Drawing.Point(634, 270)
+        Me.ButtonRegConsole.Location = New System.Drawing.Point(546, 270)
         Me.ButtonRegConsole.Name = "ButtonRegConsole"
-        Me.ButtonRegConsole.Size = New System.Drawing.Size(162, 48)
+        Me.ButtonRegConsole.Size = New System.Drawing.Size(174, 48)
         Me.ButtonRegConsole.TabIndex = 4
         Me.ButtonRegConsole.Text = "Регистрация утилиты администрирования"
         Me.ButtonRegConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -219,19 +221,20 @@ Partial Class Form1
         Me.ButtonRunServerConsole.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ButtonRunServerConsole.Image = Global.Service1CInstaller.My.Resources.Resources._1c_server
         Me.ButtonRunServerConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonRunServerConsole.Location = New System.Drawing.Point(802, 270)
+        Me.ButtonRunServerConsole.Location = New System.Drawing.Point(726, 270)
         Me.ButtonRunServerConsole.Name = "ButtonRunServerConsole"
-        Me.ButtonRunServerConsole.Size = New System.Drawing.Size(162, 48)
+        Me.ButtonRunServerConsole.Size = New System.Drawing.Size(174, 48)
         Me.ButtonRunServerConsole.TabIndex = 5
         Me.ButtonRunServerConsole.Text = "Запустить админстрирование серверов (x64)"
         Me.ButtonRunServerConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonRunServerConsole.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ButtonRunServerConsole.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1097, 321)
+        Me.ClientSize = New System.Drawing.Size(1035, 321)
         Me.Controls.Add(Me.ButtonRunServerConsole)
         Me.Controls.Add(Me.ButtonRegConsole)
         Me.Controls.Add(Me.Button1)
