@@ -121,17 +121,17 @@
   <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stop.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Untitled___3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled - 3.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_all.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Untitled___3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled - 3.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="edit-delete_5986" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-delete_5986.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2026-04-27_23-49-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2026-04-27_23-49-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_main_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_main_new.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,7 +142,10 @@
   <data name="edit_add_3860" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_add_3860.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2026-04-27_23-49-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2026-04-27_23-49-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1c_server" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1c_server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

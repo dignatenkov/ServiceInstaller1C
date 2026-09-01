@@ -763,5 +763,29 @@ Public Class Form1
             Next
         End If
     End Sub
+
+    Private Sub ButtonRunServerConsole_Click(sender As Object, e As EventArgs) Handles ButtonRunServerConsole.Click
+        '//ДИ старт 01.09.2026
+        Try
+            ' 1. Указываем полный путь к консоли администрирования 1С
+            Dim consolePath As String = "C:\Program Files\1cv8\common\1CV8 Servers (x86-64).msc"
+
+            ' 2. Проверяем наличие файла
+            If IO.File.Exists(consolePath) Then
+                ' 3. Запускаем через системную утилиту mmc.exe
+                Dim startInfo As New ProcessStartInfo()
+                startInfo.FileName = "mmc.exe"
+                startInfo.Arguments = $"""{consolePath}"""
+                startInfo.UseShellExecute = True
+
+                Process.Start(startInfo)
+            Else
+                MessageBox.Show("Файл консоли не найден по указанному пути: " & consolePath, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Ошибка при запуске консоли: " & ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class
 
