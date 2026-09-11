@@ -92,7 +92,7 @@ Partial Class ServiceParam
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 44)
+        Me.Label6.Location = New System.Drawing.Point(2, 44)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(149, 13)
         Me.Label6.TabIndex = 11
@@ -101,7 +101,7 @@ Partial Class ServiceParam
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 83)
+        Me.Label1.Location = New System.Drawing.Point(2, 83)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 13)
         Me.Label1.TabIndex = 11
@@ -205,7 +205,7 @@ Partial Class ServiceParam
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 172)
+        Me.Label2.Location = New System.Drawing.Point(2, 172)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(139, 13)
         Me.Label2.TabIndex = 11
@@ -344,7 +344,7 @@ Partial Class ServiceParam
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 5)
+        Me.Label7.Location = New System.Drawing.Point(2, 5)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(68, 13)
         Me.Label7.TabIndex = 11
@@ -381,7 +381,7 @@ Partial Class ServiceParam
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(11, 126)
+        Me.Label10.Location = New System.Drawing.Point(2, 126)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(86, 13)
         Me.Label10.TabIndex = 21

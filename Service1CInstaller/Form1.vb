@@ -601,7 +601,7 @@ Public Class Form1
         'ДИ старт 28.04.2026   { 
         ButtonRegConsole.Enabled = False
         '//  } ДИ финиш 28.04.2026 
-        ButtonAdd.Text = "Добавить новую службу"
+        ButtonAdd.Text = "Добавить"
 
         If ListViewExistedServices.SelectedItems.Count > 0 Then
 
@@ -609,7 +609,7 @@ Public Class Form1
 
             ButtonEdit.Enabled = True
             ButtonDelete.Enabled = True
-            ButtonAdd.Text = "Скопировать" + vbNewLine + "выделенную службу"
+            ButtonAdd.Text = "Скопировать" + vbNewLine ' + "выделенную службу"
             'ДИ старт 28.04.2026   { 
             ButtonRegConsole.Enabled = True
             '//  } ДИ финиш 28.04.2026 
@@ -804,5 +804,36 @@ Public Class Form1
             MessageBox.Show("Ошибка при запуске консоли: " & ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    ' //ДИ старт 11.09.2026: Автоматическое растягивание последней колонки ListView
+    Private Sub ResizeLastColumn()
+        If ListViewExistedServices Is Nothing OrElse ListViewExistedServices.Columns.Count = 0 Then
+            Return
+        End If
+
+        ' Считаем суммарную ширину всех колонок, кроме последней
+        Dim otherColumnsWidth As Integer = 0
+        For i As Integer = 0 To ListViewExistedServices.Columns.Count - 2
+            otherColumnsWidth += ListViewExistedServices.Columns(i).Width
+        Next
+
+        ' Ширина области отображения элементов (без учета рамок)
+        Dim totalWidth As Integer = ListViewExistedServices.ClientSize.Width
+
+        ' Вычисляем оставшуюся ширину для последней колонки
+        Dim lastColumnWidth As Integer = totalWidth - otherColumnsWidth
+
+        ' Устанавливаем ширину (но не меньше 100px, чтобы колонка не сжалась полностью)
+        If lastColumnWidth > 100 Then
+            ListViewExistedServices.Columns(ListViewExistedServices.Columns.Count - 1).Width = lastColumnWidth
+        Else
+            ListViewExistedServices.Columns(ListViewExistedServices.Columns.Count - 1).Width = 100
+        End If
+    End Sub
+
+    Private Sub ListViewExistedServices_Resize(sender As Object, e As EventArgs) Handles ListViewExistedServices.Resize
+        ResizeLastColumn()
+    End Sub
+    ' // } ДИ финиш 11.09.2026
 End Class
 
