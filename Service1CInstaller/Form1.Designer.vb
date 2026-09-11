@@ -40,6 +40,7 @@ Partial Class Form1
         Me.ButtonAdd = New System.Windows.Forms.Button()
         Me.ButtonRegConsole = New System.Windows.Forms.Button()
         Me.ButtonRunServerConsole = New System.Windows.Forms.Button()
+        Me.StartMode = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -112,7 +113,7 @@ Partial Class Form1
         Me.ListViewExistedServices.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListViewExistedServices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ServiceName, Me.Status, Me.Port, Me.ClusterFiles, Me.PathName})
+        Me.ListViewExistedServices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ServiceName, Me.Status, Me.StartMode, Me.Port, Me.ClusterFiles, Me.PathName})
         Me.ListViewExistedServices.FullRowSelect = True
         Me.ListViewExistedServices.HideSelection = False
         Me.ListViewExistedServices.Location = New System.Drawing.Point(6, 19)
@@ -230,6 +231,11 @@ Partial Class Form1
         Me.ButtonRunServerConsole.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ButtonRunServerConsole.UseVisualStyleBackColor = True
         '
+        'StartMode
+        '
+        Me.StartMode.Text = "Режим запуска"
+        Me.StartMode.Width = 120
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -268,4 +274,5 @@ Partial Class Form1
     Friend WithEvents LinkLabel4 As System.Windows.Forms.LinkLabel
     Friend WithEvents ButtonRegConsole As Button
     Friend WithEvents ButtonRunServerConsole As Button
+    Friend WithEvents StartMode As ColumnHeader
 End Class

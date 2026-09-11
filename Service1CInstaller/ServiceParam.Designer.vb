@@ -56,6 +56,8 @@ Partial Class ServiceParam
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ServiceName = New System.Windows.Forms.TextBox()
         Me.CheckBoxHttp = New System.Windows.Forms.CheckBox()
+        Me.ComboBoxStartType = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -149,7 +151,7 @@ Partial Class ServiceParam
         '
         'ClusterFiles
         '
-        Me.ClusterFiles.Location = New System.Drawing.Point(5, 135)
+        Me.ClusterFiles.Location = New System.Drawing.Point(5, 188)
         Me.ClusterFiles.Name = "ClusterFiles"
         Me.ClusterFiles.Size = New System.Drawing.Size(454, 20)
         Me.ClusterFiles.TabIndex = 9
@@ -157,7 +159,7 @@ Partial Class ServiceParam
         'CheckBoxDebug
         '
         Me.CheckBoxDebug.AutoSize = True
-        Me.CheckBoxDebug.Location = New System.Drawing.Point(10, 290)
+        Me.CheckBoxDebug.Location = New System.Drawing.Point(10, 343)
         Me.CheckBoxDebug.Name = "CheckBoxDebug"
         Me.CheckBoxDebug.Size = New System.Drawing.Size(185, 17)
         Me.CheckBoxDebug.TabIndex = 12
@@ -184,7 +186,7 @@ Partial Class ServiceParam
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(465, 133)
+        Me.Button1.Location = New System.Drawing.Point(465, 186)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(71, 23)
         Me.Button1.TabIndex = 10
@@ -203,7 +205,7 @@ Partial Class ServiceParam
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 119)
+        Me.Label2.Location = New System.Drawing.Point(8, 172)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(139, 13)
         Me.Label2.TabIndex = 11
@@ -229,7 +231,7 @@ Partial Class ServiceParam
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Button4.Image = Global.Service1CInstaller.My.Resources.Resources._stop
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(275, 313)
+        Me.Button4.Location = New System.Drawing.Point(275, 366)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(261, 48)
         Me.Button4.TabIndex = 3
@@ -242,7 +244,7 @@ Partial Class ServiceParam
         Me.ButtonSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.ButtonSave.Image = Global.Service1CInstaller.My.Resources.Resources.save_all
         Me.ButtonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonSave.Location = New System.Drawing.Point(5, 313)
+        Me.ButtonSave.Location = New System.Drawing.Point(5, 366)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Size = New System.Drawing.Size(264, 48)
         Me.ButtonSave.TabIndex = 3
@@ -269,7 +271,7 @@ Partial Class ServiceParam
         Me.GroupBox1.Controls.Add(Me.Login)
         Me.GroupBox1.Controls.Add(Me.RadioButtonUser2)
         Me.GroupBox1.Controls.Add(Me.RadioButtonUser1)
-        Me.GroupBox1.Location = New System.Drawing.Point(275, 161)
+        Me.GroupBox1.Location = New System.Drawing.Point(275, 214)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(261, 123)
         Me.GroupBox1.TabIndex = 16
@@ -332,7 +334,7 @@ Partial Class ServiceParam
         Me.GroupBox2.Controls.Add(Me.PortMngr)
         Me.GroupBox2.Controls.Add(Me.PortProcessEnd)
         Me.GroupBox2.Controls.Add(Me.PortProcessBegin)
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 161)
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 214)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(261, 123)
         Me.GroupBox2.TabIndex = 18
@@ -359,19 +361,40 @@ Partial Class ServiceParam
         'CheckBoxHttp
         '
         Me.CheckBoxHttp.AutoSize = True
-        Me.CheckBoxHttp.Location = New System.Drawing.Point(201, 290)
+        Me.CheckBoxHttp.Location = New System.Drawing.Point(201, 343)
         Me.CheckBoxHttp.Name = "CheckBoxHttp"
         Me.CheckBoxHttp.Size = New System.Drawing.Size(116, 17)
         Me.CheckBoxHttp.TabIndex = 19
         Me.CheckBoxHttp.Text = "Отладка по HTTP"
         Me.CheckBoxHttp.UseVisualStyleBackColor = True
         '
+        'ComboBoxStartType
+        '
+        Me.ComboBoxStartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxStartType.FormattingEnabled = True
+        Me.ComboBoxStartType.Items.AddRange(New Object() {"Автоматически", "Вручную", "Отключена"})
+        Me.ComboBoxStartType.Location = New System.Drawing.Point(5, 142)
+        Me.ComboBoxStartType.Name = "ComboBoxStartType"
+        Me.ComboBoxStartType.Size = New System.Drawing.Size(454, 21)
+        Me.ComboBoxStartType.TabIndex = 20
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(11, 126)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(86, 13)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "Режим запуска"
+        '
         'ServiceParam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Button4
-        Me.ClientSize = New System.Drawing.Size(543, 362)
+        Me.ClientSize = New System.Drawing.Size(543, 417)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.ComboBoxStartType)
         Me.Controls.Add(Me.CheckBoxHttp)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -434,4 +457,6 @@ Partial Class ServiceParam
     Friend WithEvents Label7 As Label
     Friend WithEvents ServiceName As TextBox
     Friend WithEvents CheckBoxHttp As CheckBox
+    Friend WithEvents ComboBoxStartType As ComboBox
+    Friend WithEvents Label10 As Label
 End Class

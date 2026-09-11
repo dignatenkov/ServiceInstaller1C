@@ -44,6 +44,7 @@ Public Class Form1
 
         '//ДИ старт 2026.01.22
         Public Http As Boolean = False
+        Public Property StartType As String = "Auto"
         '//ДИ финиш 2026.01.22
 
 
@@ -231,6 +232,9 @@ Public Class Form1
             Srv.Description = info("Description")
             Srv.PathName = info("PathName")
             Srv.User = info("StartName")
+            '//ДИ старт 11.09.2026  
+            Srv.StartType = info("StartMode").ToString()
+            '//  } ДИ финиш 11.09.2026
             Srv.ParsePath()
 
 
@@ -242,6 +246,19 @@ Public Class Form1
             ElseIf sc.Status.ToString = "Stopped" Then
                 item1.SubItems.Add("Остановлена")
             End If
+
+            ' //ДИ старт 11.09.2026: выводим Режим запуска 3-й колонкой
+            Select Case Srv.StartType.ToLower()
+                Case "auto", "automatic"
+                    item1.SubItems.Add("Автоматически")
+                Case "manual"
+                    item1.SubItems.Add("Вручную")
+                Case "disabled"
+                    item1.SubItems.Add("Отключена")
+                Case Else
+                    item1.SubItems.Add(Srv.StartType)
+            End Select
+            ' // } ДИ финиш 11.09.2026
 
             item1.SubItems.Add(Srv.PortMngr)
             item1.SubItems.Add(Srv.ClusterFiles)

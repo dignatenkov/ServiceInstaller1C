@@ -62,8 +62,29 @@ Public Class ServiceParam
             '//  } ДИ финиш 25.01.2026 
         End If
 
+        ' //ДИ старт 11.09.2026: установка режима запуска службы в ComboBox
+        If Serv IsNot Nothing AndAlso Not String.IsNullOrEmpty(Serv.StartType) Then
 
+            Dim mode As String = Serv.StartType.Trim().ToLower()
 
+            Select Case mode
+                Case "auto", "automatic"
+                    ComboBoxStartType.SelectedIndex = 0 ' Автоматически
+
+                Case "manual", "demand"
+                    ComboBoxStartType.SelectedIndex = 1 ' Вручную
+
+                Case "disabled"
+                    ComboBoxStartType.SelectedIndex = 2 ' Отключена
+
+                Case Else
+                    ComboBoxStartType.SelectedIndex = 0 ' По умолчанию (Автоматически)
+            End Select
+
+        Else
+            ComboBoxStartType.SelectedIndex = 0
+        End If
+        ' // } ДИ финиш 11.09.2026
 
     End Sub
 
@@ -159,9 +180,6 @@ Public Class ServiceParam
             End If
         End If
 
-
-
-
         If ExeFile.Text = "" Then
             ExeFile.BackColor = Color.Pink
             MsgBox("Путь к исполняемому файлу должен быть указан", , Text)
@@ -180,20 +198,11 @@ Public Class ServiceParam
             Return
         End If
 
-        'search = New ManagementObjectSearcher("SELECT * FROM Win32_Service WHERE PathName like '%ragent.exe%""" + ClusterFiles.Text + """%'")
-
-        'If search.Get().Count > 0 Then
-        '    ClusterFiles.BackColor = Color.Pink
-        '    MsgBox("Уже существует служба, использующая этот каталог файлов кластера. " + _
-        '           vbNewLine + "Укажите другой каталог", , Text)
-        '    Return
-        'End If
-
         If PortProcessEnd.Text = 0 _
-            Or PortProcessBegin.Text = 0 _
-            Or PortAgent.Text = 0 _
-            Or PortMngr.Text = 0 _
-            Then
+         Or PortProcessBegin.Text = 0 _
+         Or PortAgent.Text = 0 _
+         Or PortMngr.Text = 0 _
+         Then
 
             PortAgent.BackColor = Color.Pink
             PortMngr.BackColor = Color.Pink
@@ -203,7 +212,6 @@ Public Class ServiceParam
             MsgBox("Значения портов агента сервера, менеджера кластера и рабочих процессов должны быть указаны", , Text)
             Return
         End If
-
 
         If Not PortProcessEnd.Text > PortProcessBegin.Text Then
             PortProcessEnd.BackColor = Color.Pink
@@ -221,22 +229,11 @@ Public Class ServiceParam
                 debugParams &= " -http -debugServerPort " + debugServerPort
             End If
         End If
-
         '//ДИ финиш 2026.01.22
-
-        Dim PathName = """" + ExeFile.Text + """ {0} -srvc -agent -regport {1} -port {2} -range {3}:{4} -d ""{5}"""
-
-        '//ДИ старт 2026.01.22
-        'PathName = String.Format(PathName, IIf(CheckBoxDebug.Checked, "-debug", ""), PortMngr.Text,
-        'PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
 
         Dim PathNameTemplate = """" + ExeFile.Text + """ {0} -srvc -agent -regport {1} -port {2} -range {3}:{4} -d ""{5}"""
-        PathName = String.Format(PathNameTemplate, debugParams, PortMngr.Text,
-                         PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
-        '//ДИ финиш 2026.01.22
-
-
-
+        Dim PathName = String.Format(PathNameTemplate, debugParams, PortMngr.Text,
+                      PortAgent.Text, PortProcessBegin.Text, PortProcessEnd.Text, ClusterFiles.Text)
 
         Dim lpDependencies = "Tcpip" + Char.MinValue + "Dnscache" + Char.MinValue + "lanmanworkstation" + Char.MinValue + "lanmanserver"
 
@@ -244,65 +241,87 @@ Public Class ServiceParam
         Dim Pwd = ""
 
         If RadioButtonUser1.Checked Then
-            'If TechUser.Text = "Локальная система" Then
             User = "LocalSystem"
-            'ElseIf TechUser.Text = "Локальная служба" Then
-            '    User = "NT AUTHORITY\LocalService"
-            'Else
-            '    User = "NT AUTHORITY\NetworkService"
-            'End If
         Else
             User = Login.Text
             Pwd = Password.Text
         End If
 
+        Dim TargetServiceName As String = ""
+
         If ItsAdd Then
 
             '//ДИ старт 25.01.2026   { 
-            'Dim ServName = GetNewNameForService()
-            Dim ServName As String
             If String.IsNullOrWhiteSpace(ServiceName.Text) Then
-                ServName = GetNewNameForService()
+                TargetServiceName = GetNewNameForService()
             Else
-                ServName = ServiceName.Text
+                TargetServiceName = ServiceName.Text
             End If
             '//  } ДИ финиш 25.01.2026 
 
-            'TODO - обработка ошибок 
-            If Not ObjTec.Services.ServiceInstaller.InstallService(PathName, ServName, DisplayName.Text, lpDependencies, User, Pwd) Then
-
+            If Not ObjTec.Services.ServiceInstaller.InstallService(PathName, TargetServiceName, DisplayName.Text, lpDependencies, User, Pwd) Then
                 Dim ErrorCode = Marshal.GetLastWin32Error()
                 MsgBox("Ошибка установки сервиса " + Form1.GetErrorDescription(ErrorCode), MsgBoxStyle.Critical, Text)
-
+                Return
             End If
 
         ElseIf ItsEdit Then
 
+            TargetServiceName = Serv.Name
+
             If ObjTec.Services.ServiceInstaller.ChangeServiceParameters(PathName, Serv.Name, DisplayName.Text, lpDependencies, User, Pwd) Then
                 Dim sc = New System.ServiceProcess.ServiceController(Serv.Name)
                 If sc.Status = ServiceProcess.ServiceControllerStatus.Running Then
-                    ' sc.Stop()
-                    'MsgBox("Параметры существующей службы успешно изменены")
                     If MsgBox("Параметры успешно изменены, но служба в настоящий момент работает." +
-                              vbNewLine + "Перезапустить службу для применения изменений?", MsgBoxStyle.YesNo, Text) = MsgBoxResult.Yes Then
+                           vbNewLine + "Перезапустить службу для применения изменений?", MsgBoxStyle.YesNo, Text) = MsgBoxResult.Yes Then
                         sc.Stop()
                         sc.WaitForStatus(ServiceProcess.ServiceControllerStatus.Stopped)
                         sc.Start()
                         sc.WaitForStatus(ServiceProcess.ServiceControllerStatus.Running)
                     End If
-
                 End If
             Else
                 Dim ErrorCode = Marshal.GetLastWin32Error()
                 MsgBox("Ошибка изменения параметров сервиса " + Form1.GetErrorDescription(ErrorCode), MsgBoxStyle.Critical, Text)
+                Return
             End If
 
         End If
 
+        '//ДИ старт 11.09.2026: Установка типа запуска службы (Авто / Вручную / Отключена)
+        If Not String.IsNullOrEmpty(TargetServiceName) Then
+            Dim startTypeArg As String = ""
 
+            Select Case ComboBoxStartType.SelectedIndex
+                Case 0
+                    startTypeArg = "auto"     ' Автоматически
+                Case 1
+                    startTypeArg = "demand"   ' Вручную
+                Case 2
+                    startTypeArg = "disabled" ' Отключена
+            End Select
+
+            If Not String.IsNullOrEmpty(startTypeArg) Then
+                Try
+                    Dim proc As New Process()
+                    Dim startInfo As New ProcessStartInfo()
+
+                    startInfo.FileName = "sc.exe"
+                    startInfo.Arguments = String.Format("config ""{0}"" start= {1}", TargetServiceName, startTypeArg)
+                    startInfo.CreateNoWindow = True
+                    startInfo.UseShellExecute = False
+
+                    proc.StartInfo = startInfo
+                    proc.Start()
+                    proc.WaitForExit()
+                Catch ex As Exception
+                    MsgBox("Ошибка при изменении типа запуска службы: " & ex.Message, MsgBoxStyle.Exclamation, Text)
+                End Try
+            End If
+        End If
+        '//ДИ финиш 11.09.2026
 
         Close()
-
 
     End Sub
 
@@ -317,4 +336,9 @@ Public Class ServiceParam
     Private Sub PortAgent_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles PortAgent.MaskInputRejected
 
     End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+
+    End Sub
+
 End Class
